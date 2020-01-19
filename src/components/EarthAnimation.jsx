@@ -48,12 +48,21 @@ class EarthAnimation extends React.Component {
                         {/*</Button>*/}
 
                         {ticks <= 4 && (
+                            <>
                             <img
                                 alt="..."
                                 className="img-fluid fadein rotateImage"
                                 src={require(`assets/animations/earth/greyearth.png`)}
                                 style={{width: "25rem" }}
                             />
+
+                            {/*<img*/}
+                            {/*alt="..."*/}
+                            {/*className="img-fluid"*/}
+                            {/*src={require(`assets/animations/earth/grey-clouds.png`)}*/}
+                            {/*style={{width: "25rem" }}*/}
+                            {/*/>*/}
+                            </>
                         )}
 
                     </Row>

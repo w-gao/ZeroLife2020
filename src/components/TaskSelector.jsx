@@ -74,12 +74,12 @@ class TaskTab extends Component {
 
         return (
             <>
-                <Button
+                <a
                     className="tab"
                     onClick={() => this.setState({openId: id})}
                 >
                     {id}
-                </Button>
+                </a>
                 <Modal
                     className="modal-dialog-centered"
                     isOpen={this.state.openId === id}

@@ -32,18 +32,21 @@ export const Quests = {
             id: 1,
             title: "Drink from a reusable cup (5/5)",
             description: "Anytime you reuse your water bottle or a personal cup.",
+            icon: 'hydro-ult-fin',
             achievement: 0
         },
         {
             id: 2,
             title: "Pack a Lunch",
             description: "Days that you make your own food",
+            icon: 'hydro-ult-fin',
             achievement: 1
         },
         {
             id: 3,
             title: "Reuse your own bag",
             description: "Anytime you repurpose or use personal bags for anything.",
+            icon: 'hydro-ult-fin',
             achievement: 2
         }
     ],
@@ -52,12 +55,14 @@ export const Quests = {
             id: 1,
             title: "Get a reusable water bottle",
             description: "This doesn’t always mean buying, fun things like mason jars can be repurposed for on the go refreshments.",
+            icon: 'hydro-ult-fin',
             achievement: 3
         },
         {
             id: 2,
             title: "Repurpose a container",
             description: "Glassware can be expensive for tupperware options and a lot of times we might already have a container from a previous purchased food item like deli meats, or pickled items that can more than suffice as a container.",
+            icon: 'hydro-ult-fin',
             achievement: 4
         }
     ],
@@ -66,12 +71,14 @@ export const Quests = {
             id: 1,
             title: "Research a local farmers market",
             description: "Products in stores can often come in unnecessary wrapping. They can also come from unknown sources. Finding a local farmers market is a nice way to support your community and reduce your waste.",
+            icon: 'hydro-ult-fin',
             achievement: 5
         },
         {
             id: 2,
             title: "Bring your own bag to the store",
             description: "You don’t need a fancy reusable bag, you just need to repurpose one. Even if it is a plastic bag why continue paying for bags when they get collected everytime you go to the grocery store.",
+            icon: 'hydro-ult-fin',
             achievement: 6
         }
     ],
@@ -80,30 +87,35 @@ export const Quests = {
             id: 1,
             title: "Change your toothbrush",
             description: "Replacing your toothbrush after a while is important to good hygiene.  Next time, look for compostable material like bamboo, or plant based plastics that can biodegrade.",
+            icon: 'hydro-ult-fin',
             achievement: 7
         },
         {
             id: 2,
             title: "Change your hand soap",
             description: "Washing your hands protects you from disease causing organisms. The most important thing for soap is having containers you can reuse or eliminating containers through the use of eco friendly bars of soap. This means you’re looking for soap with less packaging.",
+            icon: 'hydro-ult-fin',
             achievement: 8
         },
         {
             id: 3,
             title: "Change your toothpaste",
             description: "I know! You're already out of toothpaste, bummer! But now you get the chance to explore the wonders of glass toothpaste that makes it easier to get everything out, or looking for metal tubes that can be recycled.",
+            icon: 'hydro-ult-fin',
             achievement: 9
         },
         {
             id: 4,
             title: "Change Your Conditioner",
             description: "This one is really similar to your hand soap. Something to consider is what is going down the drain and what happens to my bottle after I use it. This avoids harmful chemicals on your skin as well.",
+            icon: 'hydro-ult-fin',
             achievement: 10
         },
         {
             id: 5,
             title: "Fix Your Floss",
             description: "Just like toothpaste, plastic floss containers can disappear rather quickly. This becomes less of a problem when you start getting alternative plant based floss and even floss that can come in refillable containers.",
+            icon: 'hydro-ult-fin',
             achievement: 11
         }],
     'diy': [
@@ -111,12 +123,14 @@ export const Quests = {
             id: 1,
             title: "Research how to build a compost bin",
             description: "Compost bins can be built anywhere, you can even do it in your own kitchen with a personal container if you don’t have a yard.",
+            icon: 'hydro-ult-fin',
             achievement: 12
         },
         {
             id: 2,
             title: "Research how to make your own lip balm",
             description: "You can make lip balm with as little as 4 ingredients. When you make your own you can choose the container and flavor for yourself. This makes it so you know what is being put on your own skin.",
+            icon: 'hydro-ult-fin',
             achievement: 13
         }
     ]

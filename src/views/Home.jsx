@@ -31,6 +31,7 @@ class Home extends React.Component {
                             <Link to="/quests/daily">
                                 <Button block className="tab bg-daily" color="secondary" size="lg" type="button">
                                     Daily
+
                                     <ProgressBar count={LocalAPI.get_tasks('daily').length} total={Quests['daily'].length} />
                                 </Button>
                             </Link>

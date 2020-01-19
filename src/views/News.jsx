@@ -1,22 +1,24 @@
 
 import React from "react";
 import SideNav from "../components/SideNav";
-import {Card, CardBody, Col, Container, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
+import {Card, CardBody, Col, Container, Row } from "reactstrap";
 import Loading from "../components/Loading";
-import classnames from "classnames";
 
 class News extends React.Component {
-    state = {
-        plainTabs: 1
-    };
-    toggleNavs = (e, state, index) => {
-        e.preventDefault();
-        this.setState({
-            [state]: index
-        });
-    };
+
+    constructor(props) {
+        super(props);
+        this.state = {loadNews: false};
+    }
+
+    loadNews() {
+
+        this.setState({loadNews: true})
+    }
 
     render() {
+
+        setTimeout(() => this.loadNews(), 1000);
 
         return (
             <>
@@ -28,38 +30,32 @@ class News extends React.Component {
                             <h1>News</h1>
                             <div>
 
-                                <Loading/>
+                                {!this.state.loadNews && <Loading/>}
 
-                {/*                <div className="nav-wrapper">*/}
-                {/*                    <Nav className="nav-pills-circle" id="tabs_2" pills role="tablist">*/}
-                {/*                        <NavItem>*/}
-                {/*                            <NavLink*/}
-                {/*                                aria-selected={this.state.plainTabs === 1}*/}
-                {/*                                className={classnames("rounded-circle", {*/}
-                {/*                                    active: this.state.plainTabs === 1*/}
-                {/*                                })}*/}
-                {/*                                onClick={e => this.toggleNavs(e, "plainTabs", 1)}*/}
-                {/*                                href="#pablo"*/}
-                {/*                                role="tab"*/}
-                {/*                            >*/}
-                {/*<span className="nav-link-icon d-block">*/}
-                {/*  <i className="ni ni-atom"/>*/}
-                {/*</span>*/}
-                {/*                            </NavLink>*/}
-                {/*                        </NavItem>*/}
-                {/*                    </Nav>*/}
-                {/*                </div>*/}
-                {/*                <Card className="shadow">*/}
-                {/*                    <CardBody>*/}
-                {/*                        <TabContent activeTab={"plainTabs" + this.state.plainTabs}>*/}
-                {/*                            <TabPane tabId="plainTabs1">*/}
-                {/*                                <p className="description">*/}
 
-                {/*                                </p>*/}
-                {/*                            </TabPane>*/}
-                {/*                        </TabContent>*/}
-                {/*                    </CardBody>*/}
-                {/*                </Card>*/}
+                                {this.state.loadNews && (
+                                    <>
+                                        <Card className="shadow mb-4">
+                                            <CardBody>
+                                                <img
+                                                    alt="..."
+                                                    className="img-fluid"
+                                                    src={require(`assets/imgs/aliens-earth.svg`)}
+                                                />
+                                            </CardBody>
+                                        </Card>
+                                        <Card className="shadow mb-4">
+                                            <CardBody>
+                                                <img
+                                                    alt="..."
+                                                    className="img-fluid"
+                                                    src={require(`assets/imgs/deadlyplastic.png`)}
+                                                />
+                                            </CardBody>
+                                        </Card>
+                                    </>
+                                )}
+
 
                             </div>
                         </Col>
