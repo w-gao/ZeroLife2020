@@ -13,6 +13,9 @@ import Achievements from "./views/Achievements";
 import News from "./views/News";
 import Markets from "./views/Markets";
 import {API} from "./api/API";
+import {LocalAPI} from "./api/LocalAPI";
+
+LocalAPI.init();
 
 ReactDOM.render(
     <BrowserRouter>
@@ -25,28 +28,33 @@ ReactDOM.render(
             render={props => <Register {...props} />}
         />
         <Route
+            path="/logout"
+            exact
+            render={props => {API.logout(); return <Redirect to='/login'/>}}
+        />
+        <Route
             path="/home"
             exact
-            render={props => API.isLoggedIn() ? <Home {...props } /> : <Redirect to='/login' /> }
+            render={props => <Home {...props } /> }
         />
         <Route
             path="/quests/:id"
-            render={props => API.isLoggedIn() ? <Quests {...props } /> : <Redirect to='/login' /> }
+            render={props => <Quests {...props } /> }
         />
         <Route
             path="/achievements"
             exact
-            render={props => API.isLoggedIn() ? <Achievements {...props } /> : <Redirect to='/login' /> }
+            render={props => <Achievements {...props } /> }
         />
         <Route
             path="/news"
             exact
-            render={props => API.isLoggedIn() ? <News {...props } /> : <Redirect to='/login' /> }
+            render={props => <News {...props } /> }
         />
         <Route
             path="/markets"
             exact
-            render={props => API.isLoggedIn() ? <Markets {...props } /> : <Redirect to='/login' /> }
+            render={props => <Markets {...props } /> }
         />
 
         <Redirect to="/" />

@@ -56,14 +56,13 @@ class Login extends React.Component {
 
   render() {
 
-    if (API.isLoggedIn()) {
-      return (<Redirect to="/home"/>);
-    }
-
     if (this.state.toHome) {
       return (<Redirect to="/home"/>);
     }
 
+    if (API.isLoggedIn()) {
+      return (<Redirect to="/home"/>);
+    }
 
     return (
         <Container className="pt-lg-md mt-3">

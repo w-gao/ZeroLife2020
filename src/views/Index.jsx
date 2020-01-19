@@ -5,6 +5,7 @@ import '../assets/css/App.css';
 
 import Loading from "../components/Loading";
 import {Redirect} from "react-router";
+import EarthAnimation from "../components/EarthAnimation";
 
 class Index extends React.Component {
 
@@ -22,7 +23,7 @@ class Index extends React.Component {
 
     setTimeout(
         () => {
-          this.setState({ toRegister: true })
+          // this.setState({ toRegister: true })
         }, 3000
     );
 
@@ -34,7 +35,9 @@ class Index extends React.Component {
       <>
         <main ref="main">
 
-          <Loading />
+          {/*<Loading />*/}
+
+          <EarthAnimation />
 
         </main>
       </>

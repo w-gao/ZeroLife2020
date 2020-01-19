@@ -18,7 +18,7 @@ import {
 import {Redirect} from "react-router";
 import {API} from "../api/API";
 
-class Login extends React.Component {
+class Register extends React.Component {
 
   constructor(props) {
     super(props);
@@ -56,14 +56,13 @@ class Login extends React.Component {
 
   render() {
 
-    if (API.isLoggedIn()) {
-      return (<Redirect to="/home"/>);
-    }
-
     if (this.state.toHome) {
       return (<Redirect to="/home"/>);
     }
 
+    if (API.isLoggedIn()) {
+      return (<Redirect to="/home"/>);
+    }
 
     return (
         <Container className="pt-lg-md mt-3">
@@ -136,4 +135,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Register;

@@ -1,57 +1,76 @@
 import React from "react";
 
-import { Container, Row, Col } from "reactstrap";
+import {Container, Row} from "reactstrap";
+import {Redirect} from "react-router";
 
 class EarthAnimation extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { num: 1 };
+        this.state = {ticks: 0};
     }
 
-    updateAnimation() {
-        let num = this.state.num;
-        num++;
-        if (num >= 12) {
-            num = 1;
-        }
-
-        this.setState({num: num});
+    tick() {
+        let ticks = this.state.ticks;
+        ticks++;
+        this.setState({ticks: ticks});
     }
 
     render() {
 
         setTimeout(
             () => {
-                this.updateAnimation()
-            }, 100
+                this.tick()
+            }, 5000
         );
 
-        let num = this.state.num;
-        const url = require(`assets/animations/loading/loadingg_${num}.svg`);
+        let ticks = this.state.ticks;
+
+        const textBox = (msg) => (
+            <div className="fadein card" onClick={() => this.tick()}>
+                <h1 className="m-4">{msg}</h1>
+            </div>
+        );
+
+        if(ticks >= 6) {
+            return <Redirect to="/home"/>
+        }
 
         return (
             <Container className="shape-container d-flex align-items-center py-lg">
                 <div className="col px-0">
                     <Row className="align-items-center justify-content-center">
-                        <Col className="text-center" lg="6">
 
+                        {/*<Button*/}
+                        {/*    className="mt-4"*/}
+                        {/*>*/}
+                        {/*    2050*/}
+                        {/*</Button>*/}
+
+                        {ticks <= 4 && (
                             <img
                                 alt="..."
-                                className="img-fluid"
-                                src={require(`assets/animations/earth/greyearth.svg`)}
-                                style={{ width: "50rem" }}
+                                className="img-fluid fadein rotateImage"
+                                src={require(`assets/animations/earth/greyearth.png`)}
+                                style={{width: "25rem" }}
                             />
+                        )}
 
+                    </Row>
+                    <Row className="align-items-center justify-content-center">
 
-                            <img
-                                alt="..."
-                                className="img-fluid"
-                                src={url}
-                                style={{ width: "50rem" }}
-                            />
+                        {ticks === 0 && textBox('The earth has seen better days.')}
+                        {ticks === 1 && textBox('It feels grey and gloomy now, but that doesn\'t mean we don’t have hope.')}
+                        {ticks === 2 && textBox('The change we need is in the hands of people like me and you.')}
+                        {ticks === 3 && textBox('You can keep doing the things you love everyday')}
+                        {ticks === 4 && textBox('while contributing to the cause and living healthier.')}
 
-                        </Col>
+                        {ticks >= 5 && (
+                            <>
+                                <h1 className="brand-name font-weight-bold fadein">Zero Life</h1>
+                                <h2>Welcome to plan Zero. First thing that we’ll do is teach you how it works.</h2>
+                            </>
+                        )}
                     </Row>
                 </div>
             </Container>

@@ -31,7 +31,7 @@ class Quests extends React.Component {
                             <h1>{title.toUpperCase()} Quests</h1>
                             <div>
                                 {/*<Loading/>*/}
-                                <TaskSelector />
+                                <TaskSelector category={title} />
                             </div>
                         </Col>
                     </Row>

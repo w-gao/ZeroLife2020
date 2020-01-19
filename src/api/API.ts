@@ -64,9 +64,6 @@ export class API {
         })
             .then(result => {
                 const token = result.data.login;
-                console.log(
-                    token
-                );
 
                 if (token !== "Credentials Have Failed" && token !== "User not found") {
                     localStorage.setItem('token', token);
@@ -105,10 +102,12 @@ export class API {
             query: gql`{
               user {
                   tasks {
-                    _id
                     title
                     description
                     status
+                    category {
+                      title
+                    }
                   }
               }
             }`
@@ -133,50 +132,15 @@ export class API {
         });
     }
 
-    /**
-     * @return Promise
-     */
-    public static all_categories() {
-        return _client.query({
-            query: gql`{
-              all_categories {
-                _id
-                title
-                description
-              }
-            }`
-        });
-    }
-
-    // create/update data
-
-    /**
-     * @return Promise
-     */
-    public static update_user(email: string, experience: number) {
-
-        return _client.mutate({
-            variables: {email: email, experience: experience},
-            mutation: gql`mutation Update_user($email: String!, $experience: String!) {
-            create_user(email: $email,experience: $experience) {
-              email
-              experience
-            }
-          }`
-        }).catch(err => {
-            console.error(err);
-        });
-    }
-
     public static create_task(category: string, title: string, description: string) {
 
         return _client.mutate({
-            variables: {category: category},
-            mutation: gql`mutation Create_task($category: ID, $title: String, $description: String) {
-            create_task(category: $category, title: $title, description: $description) {
-              
-            }
-          }`
+            variables: {category: category, title: title, description: description},
+            mutation: gql`mutation($category:ID!,$title:String,$description:String) {
+  create_task(category:$category,title:$title,description:$description) {            
+    title
+  }
+}`
         }).catch(err => {
             console.error(err);
         });
@@ -196,13 +160,13 @@ export class API {
         });
     }
 
-    public static create_achievement(category: string) {
+    public static create_achievement(category: number, title: string, description: string) {
 
         return _client.mutate({
-            variables: {category: category},
+            variables: {category: category, title: title, description: description},
             mutation: gql`mutation Create_achievement($category: ID!, $title: String, $description: String) {
             create_achievement(category: $category, title: $title, description: $description) {
-              
+              _id
             }
           }`
         }).catch(err => {

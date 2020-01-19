@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Modal, UncontrolledAlert} from "reactstrap";
 import {API} from "../api/API";
+import {getCategoryId, Quests} from "../api/Data";
+import {LocalAPI} from "../api/LocalAPI";
 
 class TaskTab extends Component {
 
@@ -12,12 +14,35 @@ class TaskTab extends Component {
         }
     }
 
-    completeQuest(id, name) {
-        // API.update_task(id).then(() => {
+    componentDidMount() {
 
-        this.setState({openId: 0});
-        this.props.action(`Successfully completed quest: ${name}!`)
+
+    }
+
+    completeQuest(id, name) {
+        const cid = getCategoryId(this.props.category);
+        if (cid == null) return;
+
+        // API.create_task(cid, name, "").then(() => {
+        //     this.setState({ openId: 0 });
         // });
+
+        LocalAPI.create_task(this.props.category, id);
+        this.setState({openId: 0});
+        let message = `Successfully completed quest: ${name}!`;
+
+        for (let key in Quests[this.props.category]) {
+            if (Quests[this.props.category].hasOwnProperty(key)) {
+                if (id === Quests[this.props.category][key].id) {
+                    LocalAPI.create_achievement(Quests[this.props.category][key].achievement);
+                    // API.create_achievement(cid, Quests[this.props.category][key].achievement + "", "_");
+                    message += " You unlocked an achievement!";
+                    break;
+                }
+            }
+        }
+
+        this.props.action(message);
     }
 
     render() {
@@ -25,16 +50,36 @@ class TaskTab extends Component {
         const id = this.props.task.id;
         const title = this.props.task.title;
         const description = this.props.task.description;
-        const gradient = this.props.task.gradient;
+
+        const tasks = LocalAPI.get_tasks(this.props.category);
+
+
+        // API.get_tasks(this.props.category).then(result => {
+        //     console.log(result.data.user.tasks)
+        // });
+
+
+
+        if (id > tasks.length + 2) {
+            return (
+                <>
+                    <Button
+                        className="tab disabled"
+                    >
+                        ?
+                    </Button>
+                </>
+            )
+        }
 
         return (
             <>
-                <a
+                <Button
                     className="tab"
                     onClick={() => this.setState({openId: id})}
                 >
-                    {title}
-                </a>
+                    {id}
+                </Button>
                 <Modal
                     className="modal-dialog-centered"
                     isOpen={this.state.openId === id}
@@ -60,9 +105,13 @@ class TaskTab extends Component {
                         </p>
                     </div>
                     <div className="modal-footer">
-                        <Button onClick={() => this.completeQuest(id, title)} color="primary" type="button">
-                            Complete
-                        </Button>
+
+                        {tasks.indexOf(id) === -1 && (
+                            <Button onClick={() => this.completeQuest(id, title)} color="primary" type="button">
+                                Complete
+                            </Button>
+                        )}
+
                         <Button
                             className="ml-auto"
                             color="link"
@@ -94,25 +143,11 @@ export class TaskSelector extends Component {
 
         // fetch tasks
 
-        API.get_tasks().then(result => {
-            console.log(result)
-        });
+        // API.get_tasks().then(result => {
+        //     console.log(result)
+        // });
 
-
-        const tasks = [
-            {
-                id: 1,
-                title: "123",
-                description: "AAA",
-                gradient: 3
-            },
-            {
-                id: 2,
-                title: "123",
-                description: "AAABBB",
-                gradient: 4
-            },
-        ];
+        const tasks = Quests[this.props.category];
 
         this.setState({
             loaded: true,
@@ -148,7 +183,7 @@ export class TaskSelector extends Component {
                 <div className={"taskSelector"}>
                     {this.state.tasks.map((task) => {
                         return (
-                            <TaskTab key={task.id} task={task} action={this.handler}/>
+                            <TaskTab key={task.id} task={task} category={this.props.category} action={this.handler}/>
                         )
                     })}
                 </div>

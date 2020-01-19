@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {Button, Modal} from "reactstrap";
-import {API} from "../api/API";
+import {Achievements} from "../api/Data";
+import {LocalAPI} from "../api/LocalAPI";
 
 class AchievementTab extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            openId: 0,
-            alert: null
+            openId: -1
         }
     }
 
@@ -19,6 +19,23 @@ class AchievementTab extends Component {
         const icon = this.props.achievement.icon;
         const url = require(`assets/icons/${icon}.svg`);
 
+        if (LocalAPI.has_achievement(id)) {
+            return (
+                <>
+                    <a
+                        className="achievementTab"
+                    >
+                        <img
+                            alt="..."
+                            className="img-fluid greyed"
+                            src={url}
+                        />
+
+                    </a>
+                </>
+            )
+        }
+
         return (
             <>
                 <a
@@ -27,7 +44,7 @@ class AchievementTab extends Component {
                 >
                     <img
                         alt="..."
-                        className="img-fluid greyed"
+                        className="img-fluid"
                         src={url}
                     />
 
@@ -35,7 +52,7 @@ class AchievementTab extends Component {
                 <Modal
                     className="modal-dialog-centered"
                     isOpen={this.state.openId === id}
-                    toggle={() => this.setState({openId: 0})}
+                    toggle={() => this.setState({openId: -1})}
                 >
                     <div className="modal-header">
                         <h6 className="modal-title" id="modal-title-default">
@@ -46,7 +63,7 @@ class AchievementTab extends Component {
                             className="close"
                             data-dismiss="modal"
                             type="button"
-                            onClick={() => this.setState({openId: 0})}
+                            onClick={() => this.setState({openId: -1})}
                         >
                             <span aria-hidden={true}>×</span>
                         </button>
@@ -62,7 +79,7 @@ class AchievementTab extends Component {
                             color="link"
                             data-dismiss="modal"
                             type="button"
-                            onClick={() => this.setState({openId: 0})}
+                            onClick={() => this.setState({openId: -1})}
                         >
                             Close
                         </Button>
@@ -86,30 +103,12 @@ export class AchievementSelector extends Component {
     componentDidMount() {
 
         // fetch tasks
-
-        API.get_tasks().then(result => {
-            console.log(result)
-        });
-
-
-        const achievements = [
-            {
-                id: 1,
-                title: "123",
-                description: "AAA",
-                icon: "hydro-achievement"
-            },
-            {
-                id: 2,
-                title: "123",
-                description: "AAABBB",
-                icon: "toothbrush-achievementx"
-            }
-        ];
+        // API.get_achievements().then(result => {
+        // });
 
         this.setState({
             loaded: true,
-            achievements: achievements
+            achievements: Achievements
         });
     }
 
