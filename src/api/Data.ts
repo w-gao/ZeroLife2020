@@ -126,23 +126,23 @@ export const Achievements = [
     {
         id: 0,
         title: "B.Y.O.C. Party!",
-        icon: 'toothbrush-achievementx'
+        icon: 'hydro-ult-fin'
     },
     {
         id: 1,
         title: "Pack Mule",
-        icon: 'toothbrush-achievementx'
+        icon: 'bento-ach-fin'
     },
     {
         id: 2,
         title: "Serious Personal Baggage",
-        icon: 'toothbrush-achievementx'
+        icon: 'paper-bag-achievementx'
     },
     {
         id: 3,
         title: "Quench Quest",
         description: "24 million liters of oil are needed to produce the over 38 million plastic bottles that end up in landfills each year. Not only are you minimizing this number but your saving yourself some money.",
-        icon: 'hydro-ult-fin'
+        icon: 'hydro-achievement'
     },
     {
         id: 4,
@@ -154,13 +154,13 @@ export const Achievements = [
         id: 5,
         title: "The Ranch Hand",
         description: "Not only have studies shown that Food can be less expensive at farmers markets, but also most farmers travel fewer than 50miles to sell their produce. This means you will probably recognize exactly where your food is coming from.",
-        icon: 'toothbrush-achievementx'
+        icon: 'market-icon'
     },
     {
         id: 6,
         title: "We got this in the bag",
         description: "12 million barrels of oil are used in the construction of the 100 billion plastic bags Americans use each year. Now with your own we have hopefully pushed that number down to 999,999,999. Go team!",
-        icon: 'toothbrush-achievementx'
+        icon: 'paper-bag'
     },
     {
         id: 7,
@@ -184,24 +184,24 @@ export const Achievements = [
         id: 10,
         title: "Pavlov Approved Conditioning",
         description: "Over half a million shampoo bottles end up in a landfill. Now things will end up less full.",
-        icon: 'toothbrush-achievementx'
+        icon: 'conditioner-achieve'
     },
     {
         id: 11,
         title: "You are Flossome",
         description: "Traditional floss coats it in a substance to help receive a better glide while using it. It turns out that it actually contain PFA chemicals that can be harmful to your body. So you my friend just saved yourself some health stress.",
-        icon: 'toothbrush-achievementx'
+        icon: 'floss_ACHIEVEMENT'
     },
     {
         id: 12,
-        title: "Compo*star",
-        description: "With less than 5 percent of plastic being recycled after first use, why not make a switch to wasted that can be placed anywhere.",
-        icon: 'toothbrush-achievementx'
+        title: "Garden Blob",
+        description: "A shy and fairy-like blob",
+        icon: 'fairy'
     },
     {
         id: 13,
         title: "Crafty",
         description: "The most dangerous part of a product can be the way it’s made. Avoid supporting petroleum industry by making lip balm at home.",
-        icon: 'toothbrush-achievementx'
+        icon: 'trophy'
     }
 ];
