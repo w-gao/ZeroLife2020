@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(231,215,173, 0.3)), to(rgba(122,193,177, 0.5))) fixed;
+}
+
+
+.sidenav {
+    height: 100%;
+    width: 5rem;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f7f7f7;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 0.7rem 6px 0.7rem 16px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+
+.main {
+    margin-top: 2rem;
+    margin-left: 7rem;
+}
+
+@media only screen and (max-width: 426px) {
+    .sidenav {
+        /*display: none;*/
+
+        height: 5rem;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        /*top: 0;*/
+        /*left: 0;*/
+        background-color: #f7f7f7;
+        overflow-y: hidden;
+        /*padding-top: 20px;*/
+
+    }
+
+    .sidenav a {
+        padding: 6px 6px 6px 6px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+    }
+
+    .main {
+        margin-top: 7rem;
+        margin-left: 5px;
+    }
+}
+
+
+.category {
+
+}
+
+.category > a > .tab {
+    margin: 1rem 0;
+    min-height: 10rem;
+}
+
+.category > .tab:hover {
+    box-shadow: none;
+}
+
+
+.taskSelector {
+    /*border: 1px solid #2e2e2e;*/
+    width: max-content;
+    max-width: 49rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab {
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 3rem;
+    background-color: #ebebeb;
+    border: 1px solid #2e2e2e;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 10rem;
+    min-width: 10rem;
+}
+
+.achievementSelector {
+    width: max-content;
+    max-width: 49rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.achievementTab {
+    position:relative;
+    margin: 3rem;
+    background-color: #ebebeb;
+    text-align: center;
+    min-height: 10rem;
+    min-width: 10rem;
+}
+
+.achievementTab:hover {
+    top: 5px;
+}
+
+.tab:hover {
+    background-color: rgba(122,193,177, 0.3);
+}
+
+.greyed {
+    opacity: .5;
+    background-color: rgba(20, 20, 20, 0.3);
+}
