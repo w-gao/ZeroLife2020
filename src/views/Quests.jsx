@@ -1,43 +1,28 @@
 import React from "react";
 
 import {
-  Card,
-  CardHeader,
-  CardBody,
   Container,
   Row,
   Col,
-  Button
 } from "reactstrap";
 import SideNav from "../components/SideNav";
-import { Link } from "react-router-dom";
 import { TaskSelector } from "../components/TaskSelector";
-import Loading from "../components/Loading";
 
-class Quests extends React.Component {
-  componentDidMount() {}
+const Quests = props => (
+  <React.Fragment>
+    <SideNav />
 
-  render() {
-    const title = this.props.match.params.id;
-
-    return (
-      <>
-        <SideNav />
-
-        <Container className="pt-lg-md main">
-          <Row className="justify-content-center">
-            <Col lg="10" className="category">
-              <h1>{title.toUpperCase()} Quests</h1>
-              <div>
-                {/*<Loading/>*/}
-                <TaskSelector category={title} />
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </>
-    );
-  }
-}
+    <Container className="pt-lg-md main">
+      <Row className="justify-content-center">
+        <Col lg="10" className="category">
+          <h1>{props.match.params.id.toUpperCase()} Quests</h1>
+          <div>
+            <TaskSelector category={props.match.params.id} />
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  </React.Fragment>
+);
 
 export default Quests;
