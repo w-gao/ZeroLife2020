@@ -97,59 +97,59 @@ const Markets = () => {
         <Row className="justify-content-center">
           <Col lg="10" className="category">
             <h1>Markets</h1>
-              {data.marketZipCode.map((market, index) => (
-                <React.Fragment key={index}>
-                  <br />
-                  <Card>
-                    <CardBody>
-                      <CardTitle>{market.MarketName}</CardTitle>
-                      <CardSubtitle>
-                        {market.street}, {market.city}, {market.State},{" "}
-                        {market.zip}, {market.County}
-                      </CardSubtitle>
+            {data.marketZipCode.map((market, index) => (
+              <React.Fragment key={index}>
+                <br />
+                <Card>
+                  <CardBody>
+                    <CardTitle>{market.MarketName}</CardTitle>
+                    <CardSubtitle>
+                      {market.street}, {market.city}, {market.State},{" "}
+                      {market.zip}, {market.County}
+                    </CardSubtitle>
 
-                      <CardText>
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "space-between"
-                          }}
-                        >
-                          <p>Credit: {featureCheckTernary(market.Credit)}</p>
-                          <p>Snap: {featureCheckTernary(market.SNAP)}</p>
-                          <p>Organic: {featureCheckTernary(market.Organic)}</p>
-                          <p>
-                            Bakedgoods: {featureCheckTernary(market.Bakedgoods)}
-                          </p>
-                          <p>Cheese: {featureCheckTernary(market.Cheese)}</p>
-                          <p>Crafts: {featureCheckTernary(market.Crafts)}</p>
-                          <p>
-                            WildHarvested:{" "}
-                            {featureCheckTernary(market.WildHarvested)}{" "}
-                          </p>
-                        </div>
-                      </CardText>
-
+                    <CardText>
                       <div
                         style={{
                           display: "flex",
-                          direction: "row",
+                          flexDirection: "row",
                           justifyContent: "space-between"
                         }}
                       >
-                        <p>FMID: {market.FMID} </p>{" "}
-                        <Button>
-                          <a href={market.Website} target="__blank">
-                            {market.MarketName} Site
-                          </a>
-                        </Button>
+                        <p>Credit: {featureCheckTernary(market.Credit)}</p>
+                        <p>Snap: {featureCheckTernary(market.SNAP)}</p>
+                        <p>Organic: {featureCheckTernary(market.Organic)}</p>
+                        <p>
+                          Bakedgoods: {featureCheckTernary(market.Bakedgoods)}
+                        </p>
+                        <p>Cheese: {featureCheckTernary(market.Cheese)}</p>
+                        <p>Crafts: {featureCheckTernary(market.Crafts)}</p>
+                        <p>
+                          WildHarvested:{" "}
+                          {featureCheckTernary(market.WildHarvested)}{" "}
+                        </p>
                       </div>
-                    </CardBody>
-                  </Card>
-                  <br />
-                </React.Fragment>
-              ))}
+                    </CardText>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        direction: "row",
+                        justifyContent: "space-between"
+                      }}
+                    >
+                      <p>FMID: {market.FMID} </p>{" "}
+                      <Button>
+                        <a href={market.Website} target="__blank">
+                          {market.MarketName} Site
+                        </a>
+                      </Button>
+                    </div>
+                  </CardBody>
+                </Card>
+                <br />
+              </React.Fragment>
+            ))}
           </Col>
         </Row>
       </Container>
