@@ -22,7 +22,7 @@ class AchievementTab extends Component {
       return (
         <>
           <a className="achievementTab">
-            <img alt="..." className="img-fluid greyed" src={url} />
+            <img alt="..." className="img-fluid greyed lazyload" data-src={url} />
           </a>
         </>
       );
