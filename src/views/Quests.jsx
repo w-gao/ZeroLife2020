@@ -1,10 +1,6 @@
 import React from "react";
 
-import {
-  Container,
-  Row,
-  Col,
-} from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import SideNav from "../components/SideNav";
 import { TaskSelector } from "../components/TaskSelector";
 
