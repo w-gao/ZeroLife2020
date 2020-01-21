@@ -15,6 +15,8 @@ import Markets from "./views/Markets";
 import {API} from "./api/API";
 import {LocalAPI} from "./api/LocalAPI";
 
+import 'lazysizes';
+
 export default class Global {
     static _api;
 
