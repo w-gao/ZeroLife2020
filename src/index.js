@@ -12,70 +12,63 @@ import Quests from "./views/Quests";
 import Achievements from "./views/Achievements";
 import News from "./views/News";
 import Markets from "./views/Markets";
-import { API } from "./api/API";
-import { LocalAPI } from "./api/LocalAPI";
+import {API} from "./api/API";
+import {LocalAPI} from "./api/LocalAPI";
 
-import { ApolloProvider } from "@apollo/react-hooks";
-import { ApolloClient } from "apollo-client";
-import { createHttpLink } from "apollo-link-http";
-import { setContext } from "apollo-link-context";
-import { InMemoryCache } from "apollo-cache-inmemory";
+export default class Global {
+    static _api;
 
-const httpLink = createHttpLink({
-  uri: "https://lobitos-fxuevruz4a-uc.a.run.app/"
-});
-
-const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  const token = localStorage.getItem("token");
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : ""
+    static getAPI() {
+        return this._api;
     }
-  };
-});
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache()
-});
+    static setAPI(api) {
+        this._api = api;
+    }
+}
+
+// if (localStorage.getItem('token') !== null) {
+//     Global.setAPI(new GraphQLAPI());
+// } else {
+//     Global.setAPI(new LocalAPI());
+// }
+// Global.getAPI().init();
 
 LocalAPI.init();
 
+console.log('API initialized! ');
+
+
 ReactDOM.render(
-  <ApolloProvider client={client}>
     <BrowserRouter>
       <Switch>
         <Route path="/" exact render={props => <Index {...props} />} />
         <Route path="/login" exact render={props => <Login {...props} />} />
         <Route
-          path="/register"
-          exact
-          render={props => <Register {...props} />}
+            path="/register"
+            exact
+            render={props => <Register {...props} />}
         />
         <Route
-          path="/logout"
-          exact
-          render={props => {
-            API.logout();
-            return <Redirect to="/login" />;
-          }}
+            path="/logout"
+            exact
+            render={props => {
+              API.logout();
+              return <Redirect to="/login" />;
+            }}
         />
         <Route path="/home" exact render={props => <Home {...props} />} />
         <Route path="/quests/:id" render={props => <Quests {...props} />} />
         <Route
-          path="/achievements"
-          exact
-          render={props => <Achievements {...props} />}
+            path="/achievements"
+            exact
+            render={props => <Achievements {...props} />}
         />
         <Route path="/news" exact render={props => <News {...props} />} />
         <Route path="/markets" exact render={props => <Markets {...props} />} />
 
         <Redirect to="/" />
       </Switch>
-    </BrowserRouter>{" "}
-  </ApolloProvider>,
-  document.getElementById("root")
+    </BrowserRouter>,
+    document.getElementById("root")
 );

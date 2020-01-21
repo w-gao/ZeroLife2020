@@ -9,6 +9,7 @@ class News extends React.Component {
     constructor(props) {
         super(props);
         this.state = {loadNews: false};
+        this.timeout = null;
     }
 
     loadNews() {
@@ -18,7 +19,7 @@ class News extends React.Component {
 
     render() {
 
-        setTimeout(() => this.loadNews(), 1000);
+        this.timeout = setTimeout(() => this.loadNews(), 1000);
 
         return (
             <>
@@ -63,6 +64,10 @@ class News extends React.Component {
                 </Container>
             </>
         );
+    }
+
+    componentWillUnmount() {
+        clearTimeout(this.timeout)
     }
 }
 

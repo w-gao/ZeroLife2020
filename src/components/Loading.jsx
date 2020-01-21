@@ -7,20 +7,19 @@ class Loading extends React.Component {
   constructor(props) {
     super(props);
     this.state = { num: 1 };
+    this.timeout = null;
   }
 
   updateAnimation() {
     let num = this.state.num;
     num = (num % 12) + 1;
 
-    console.log(num);
-
     this.setState({num: num});
   }
 
   render() {
 
-    setTimeout(
+    this.timeout = setTimeout(
         () => {
           this.updateAnimation()
         }, 100
@@ -48,6 +47,10 @@ class Loading extends React.Component {
         </Container>
 
     );
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
   }
 }
 
