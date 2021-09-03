@@ -12,17 +12,14 @@ const Home = () => (
     <SideNav />
     <Container className="pt-lg-md main">
       <Row className="justify-content-center">
-        <Col lg="10" className="category">
+        <Col lg="10" className="category" style={{height: "100%", paddingBottom: "100px"}}>
           <h1 className="mb-0">HOME</h1>
           <p>Choose a category...</p>
 
           <Link to="/quests/daily">
             <Button
               style={{
-                backgroundImage: `url("https://trello-attachments.s3.amazonaws.com/5e24727e666e612ea77156d2/1108x714/aba9736c49cba08ca9f6fefa19ebfa58/daily.jpg")`,
-                backgroundSize: "fill",
-                backgroundRepeat: "no-repeat",
-                filter: "grayscale(40%)",
+                backgroundColor: "white",
                 width: "100%",
                 height: "30%"
               }}
@@ -42,10 +39,7 @@ const Home = () => (
           <Link to="/quests/kitchen">
             <Button
               style={{
-                backgroundImage: `url("https://trello-attachments.s3.amazonaws.com/5e21579585f896724222c892/5e24727e666e612ea77156d2/8b228800dcf36abd33fcafa6dda7fd72/kitchen.jpg")`,
-                backgroundSize: "fill",
-                backgroundRepeat: "no-repeat",
-                filter: "grayscale(40%)",
+                backgroundColor: "white",
                 width: "100%",
                 height: "30%"
               }}
@@ -65,10 +59,7 @@ const Home = () => (
           <Link to="/quests/groceries">
             <Button
               style={{
-                backgroundImage: `url("https://trello-attachments.s3.amazonaws.com/5e21579585f896724222c892/5e24727e666e612ea77156d2/78d69ebd27a7fb1bb2ff097e23da9fcc/groceries.jpg")`,
-                backgroundSize: "fill",
-                backgroundRepeat: "no-repeat",
-                filter: "grayscale(40%)",
+                backgroundColor: "white",
                 width: "100%",
                 height: "30%"
               }}
@@ -88,9 +79,7 @@ const Home = () => (
           <Link to="/quests/bathroom">
             <Button
               style={{
-                backgroundImage: `url("https://trello-attachments.s3.amazonaws.com/5e21579585f896724222c892/5e24727e666e612ea77156d2/d21d3681755664677d0e059adeae07a3/bathroom.jpg")`,
-                backgroundSize: "fill",
-                backgroundRepeat: "no-repeat",
+                backgroundColor: "white",
                 filter: "grayscale(40%)",
                 width: "100%",
                 height: "30%"
@@ -111,10 +100,7 @@ const Home = () => (
           <Link to="/quests/diy">
             <Button
               style={{
-                backgroundImage: `url("https://trello-attachments.s3.amazonaws.com/5e21579585f896724222c892/5e24727e666e612ea77156d2/4eacba6fb0f9872299705577d62ade81/diy.jpeg")`,
-                backgroundSize: "fill",
-                backgroundRepeat: "no-repeat",
-                filter: "grayscale(40%)",
+                backgroundColor: "white",
                 width: "100%",
                 height: "30%"
               }}

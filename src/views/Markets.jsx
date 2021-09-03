@@ -12,7 +12,6 @@ import {
   Button
 } from "reactstrap";
 import "../assets/css/argon-design-system-react.min.css";
-import Loading from "../components/Loading";
 import ApolloClient, { gql } from "apollo-boost";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { ApolloProvider, useQuery } from "@apollo/react-hooks";
@@ -66,7 +65,7 @@ const Markets = () => {
             <Col lg="10" className="category">
               <h1>Markets</h1>
               <div>
-                <Loading />
+                Loading...
               </div>
             </Col>
           </Row>
@@ -83,7 +82,7 @@ const Markets = () => {
             <Col lg="10" className="category">
               <h1>Markets</h1>
               <div>
-                <p>{error.message}</p>
+                <p>Oh no! {error.message} - perhaps the API is down :(</p>
               </div>
             </Col>
           </Row>
