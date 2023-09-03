@@ -2,11 +2,6 @@ import React from "react";
 import {Progress} from "reactstrap";
 
 class ProgressBar extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const count = this.props.count;
         const total = this.props.total;

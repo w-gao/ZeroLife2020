@@ -21,21 +21,21 @@ class AchievementTab extends Component {
     if (LocalAPI.has_achievement(id)) {
       return (
         <>
-          <a className="achievementTab">
+          <p className="achievementTab">
             <img alt="..." className="img-fluid greyed lazyload" data-src={url} />
-          </a>
+          </p>
         </>
       );
     }
 
     return (
       <>
-        <a
+        <p
           className="achievementTab"
           onClick={() => this.setState({ openId: id })}
         >
           <img alt="..." className="img-fluid" src={url} />
-        </a>
+        </p>
         <Modal
           className="modal-dialog-centered"
           isOpen={this.state.openId === id}

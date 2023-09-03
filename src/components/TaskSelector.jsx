@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Modal, UncontrolledAlert} from "reactstrap";
-import {API} from "../api/API";
+// import {API} from "../api/API";
 import {getCategoryId, Quests} from "../api/Data";
 import {LocalAPI} from "../api/LocalAPI";
 
@@ -74,12 +74,12 @@ class TaskTab extends Component {
 
         return (
             <>
-                <a
+                <p
                     className="tab"
                     onClick={() => this.setState({openId: id})}
                 >
                     {id}
-                </a>
+                </p>
                 <Modal
                     className="modal-dialog-centered"
                     isOpen={this.state.openId === id}
